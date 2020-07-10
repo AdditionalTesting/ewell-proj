@@ -51,12 +51,12 @@ class MembersController < ApplicationController
   end
 
   def experts_with_connections(member, experts)
-    @experts_with_connections = experts.map do |post|
-      { id: post.id,
-        first_name: post.first_name,
-        last_name: post.last_name,
-        profile_path: post.profile_path,
-        mutual_connection: (post.friends & member.friends).first
+    @experts_with_connections = experts.map do |expert|
+      { id: expert.id,
+        first_name: expert.first_name,
+        last_name: expert.last_name,
+        profile_path: expert.profile_path,
+        mutual_connection: (expert.friends & member.friends).first
        }
      end
   end
